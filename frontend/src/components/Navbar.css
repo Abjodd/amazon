@@ -1,0 +1,36 @@
+/* NavBar.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(135deg, #6c63ff, #007bff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-title {
+    font-size: 1.8rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-title:hover {
+    transform: scale(1.1);
+}
+
+/* Add padding to the body so the content doesn't overlap the navbar */
+body {
+    padding-top: 60px; /* Matches the navbar height */
+    margin: 0;
+}

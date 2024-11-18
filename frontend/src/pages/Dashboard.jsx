@@ -16,7 +16,6 @@ const Dashboard = () => {
             const response = await axios.post('http://localhost:5000/api/social-media/extract', {
                 url: socialMediaUrl,
             });
-            console.log('Received posts data:', response.data); // Log the received data
             setPostsData(response.data);
             setError(null);
         } catch (error) {
@@ -28,35 +27,46 @@ const Dashboard = () => {
     };
 
     return (
+        
         <div className="dashboard">
-            <h1>Extract Social Media Posts</h1>
-            <form onSubmit={handleUrlSubmit}>
-                <label>
-                    Social Media URL:
-                    <input
-                        type="text"
-                        value={socialMediaUrl}
-                        onChange={(e) => setSocialMediaUrl(e.target.value)}
-                    />
-                </label>
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Extracting...' : 'Extract'}
-                </button>
-            </form>
+            <div className="dashboard-container">
+                <h1 className="dashboard-title">Extract Social Media Posts</h1>
+                <form onSubmit={handleUrlSubmit} className="dashboard-form">
+                    <label className="form-label">
+                        Social Media URL:
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={socialMediaUrl}
+                            onChange={(e) => setSocialMediaUrl(e.target.value)}
+                            placeholder="Enter the social media URL"
+                        />
+                    </label>
+                    <button type="submit" className="form-button" disabled={loading}>
+                        {loading ? 'Extracting...' : 'Extract'}
+                    </button>
+                </form>
 
-            {error && <p className="error">{error}</p>}
+                {error && <p className="error-message">{error}</p>}
 
-            {postsData.length > 0 && (
-                <div className="posts-data">
-                    <h2>Posts Data:</h2>
-                    {postsData.map((post, index) => (
-                        <div key={index} className="post-data">
-                            <img src={`http://localhost:5000/api/proxy?url=${encodeURIComponent(post.imageUrl)}`} alt="Post" />
-                            <p>{post.description}</p>
+                {postsData.length > 0 && (
+                    <div className="posts-container">
+                        <h2 className="posts-title">Posts Data:</h2>
+                        <div className="posts-grid">
+                            {postsData.map((post, index) => (
+                                <div key={index} className="post-card">
+                                    <img
+                                        src={`http://localhost:5000/api/proxy?url=${encodeURIComponent(post.imageUrl)}`}
+                                        alt="Post"
+                                        className="post-image"
+                                    />
+                                    <p className="post-description">{post.description}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            )}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
