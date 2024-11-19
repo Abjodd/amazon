@@ -1,6 +1,5 @@
 /* Dashboard.css */
 .dashboard {
-    
     position: absolute; /* Position the dashboard absolutely */
     top: 0; /* Set the top position to 0 */
     left: 0; /* Set the left position to 0 */
@@ -9,16 +8,21 @@
     padding: 20px; /* Add some padding for better readability */
     display: flex; /* Set the display property to flex for flexible layout */
     justify-content: center; /* Center the content horizontally */
-    align-items: top; /* Center the content vertically */
+    align-items: flex-start; /* Align the content to the top */
     background-color: #f9f9f9; /* Set the background color to a light gray */
+    background: url('/OIP.jpeg') no-repeat center center; /* Correct background image */
+    background-size: cover; /* Scale the image to cover the entire area */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    margin-bottom: 10px; /* Add margin to the top to prevent overlapping with the navbar */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    margin-bottom: 10px;
 }
+
+
 
 .dashboard-container {
     max-width: 800px;
     width: 100%;
-    background: #fff;
+    background:lightskyblue;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     padding: 30px;
@@ -50,6 +54,7 @@
 .form-input {
     padding: 10px;
     font-size: 1rem;
+    background-color: lightblue;
     border: 2px solid #ddd;
     border-radius: 6px;
     width: 100%;
@@ -131,4 +136,12 @@
     font-size: 0.9rem;
     color: #666;
     font-family: 'Roboto', sans-serif;
+}
+.dashboard-title{
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

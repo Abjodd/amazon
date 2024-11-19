@@ -1,4 +1,3 @@
-/* NavBar.css */
 .navbar {
     position: fixed;
     top: 0;
@@ -8,29 +7,71 @@
     background: linear-gradient(135deg, #6c63ff, #007bff);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Space between logo and widgets */
+    padding: 0 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
-.navbar-title {
-    font-size: 1.8rem;
+.navbar-logo {
+    height: 150px;
+    cursor: pointer;
+}
+
+.navbar-widgets {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation Links */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li a {
+    text-decoration: none;
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-links li a:hover {
+    color: #ffcc00;
+}
+
+/* Search Bar */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.navbar-search input {
+    border: none;
+    color: black;
+    background: transparent;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Icons */
+.navbar-icon {
+    font-size: 1.5rem;
+    color: #fff;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s;
 }
 
-.navbar-title:hover {
+.navbar-icon:hover {
     transform: scale(1.1);
-}
-
-/* Add padding to the body so the content doesn't overlap the navbar */
-body {
-    padding-top: 60px; /* Matches the navbar height */
-    margin: 0;
 }
